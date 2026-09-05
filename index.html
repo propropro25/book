@@ -1,1 +1,294 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A Theory of Integration</title><link rel="stylesheet" href="./shared.css"></head><body><header class="site-header"><span class="brand">A Theory of Integration</span><nav class="top-nav"><a href="https://propropro25.github.io/intro/">Author</a><a href="https://propropro25.github.io/TOC/">Contents</a></nav></header><main class="book-home"><div><div class="eyebrow">An interactive book</div><h1>Read it your way.</h1><p>Read the book in order, or begin with whatever matters to you. Every subject can open further. Every claim can open into the records behind it.</p><div class="home-actions"><a class="primary" href="https://propropro25.github.io/intro/">Read from the beginning →</a><a href="https://propropro25.github.io/TOC/">Explore the contents</a></div></div></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A Theory of Integration</title>
+
+  <style>
+    :root {
+      --navy: #152b34;
+      --ink: #15191d;
+      --muted: #667278;
+      --cream: #f4f1ea;
+      --line: rgba(21,25,29,.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      min-height: 72px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: var(--cream);
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+    }
+
+    .top-nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .top-nav a:hover {
+      color: var(--ink);
+    }
+
+    .home {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 6vw;
+    }
+
+    .home-inner {
+      width: min(900px, 100%);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(52px, 9vw, 108px);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .subtitle {
+      max-width: 650px;
+      margin: 34px auto 0;
+      color: var(--muted);
+      font-size: clamp(20px, 2.5vw, 27px);
+      line-height: 1.45;
+    }
+
+    .home-actions {
+      margin-top: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .home-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+    }
+
+    .home-actions a:hover {
+      background: #24434e;
+      border-color: #24434e;
+    }
+
+    .home-actions a.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .home-actions a.secondary:hover {
+      background: #fff;
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    /*
+      The evidence button is deliberately quieter than
+      "Read from the beginning" so the reader can choose
+      between entering the book and going directly to the archive.
+    */
+    .home-actions a.button-evidence {
+      background: transparent;
+      color: var(--ink);
+      border-color: #8a969b;
+    }
+
+    .home-actions a.button-evidence:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .home-actions a.button-evidence span {
+      margin-left: 8px;
+      font-size: 15px;
+    }
+
+    .home-note {
+      margin-top: 38px;
+      color: #8a9498;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        padding: 0 24px;
+      }
+
+      .top-nav {
+        gap: 16px;
+      }
+
+      .home {
+        padding: 64px 24px;
+      }
+
+      h1 {
+        font-size: clamp(52px, 16vw, 82px);
+      }
+
+      .subtitle {
+        font-size: 19px;
+      }
+
+      .home-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .home-actions a {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a
+      class="brand"
+      href="https://propropro25.github.io/book/"
+    >
+      A Theory of Integration
+    </a>
+
+    <nav class="top-nav">
+      <a href="https://propropro25.github.io/intro/">Author</a>
+      <a href="https://propropro25.github.io/TOC/">Contents</a>
+    </nav>
+  </header>
+
+
+  <main class="home">
+
+    <div class="home-inner">
+
+      <div class="eyebrow">
+        A Theory of Integration
+      </div>
+
+      <h1>
+        A Theory<br>
+        of Integration
+      </h1>
+
+      <p class="subtitle">
+        A book about humans, systems, life, history, and the possibilities
+        that emerge when we look at them together.
+      </p>
+
+
+      <div class="home-actions">
+
+        <a
+          class="primary"
+          href="https://propropro25.github.io/intro/"
+        >
+          Read from the beginning →
+        </a>
+
+        <a
+          class="secondary"
+          href="https://propropro25.github.io/TOC/"
+        >
+          Explore the contents
+        </a>
+
+        <a
+          class="button-evidence"
+          href="https://propropro25.github.io/homebase/"
+        >
+          Get straight to the evidence
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+
+      <div class="home-note">
+        Read in order. Explore freely. Follow the questions.
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
